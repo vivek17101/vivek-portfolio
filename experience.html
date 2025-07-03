@@ -1,92 +1,132 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience | Vivek Gupta</title>
-  <script>
-	tailwind.config = {
-		darkMode: 'class'
-	}
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    function toggleTheme() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      document.getElementById('theme-toggle-text').innerText = isDark ? 'Light Theme' : 'Dark Theme';
-    }
-    window.onload = () => {
-      const savedTheme = localStorage.getItem('theme') || 'dark';
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-      document.getElementById('theme-toggle-text').innerText = savedTheme === 'dark' ? 'Light Theme' : 'Dark Theme';
-    }
-  </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experience | Vivek Gupta</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- Theme detection script (prevents FOUC) -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
 
-  <!-- Navbar -->
-  <header class="flex justify-between items-center px-6 py-4 shadow-md dark:shadow-gray-800 sticky top-0 bg-white dark:bg-gray-900 z-50">
-    <h1 class="text-xl font-bold">Vivek Gupta</h1>
-    <nav class="space-x-4 hidden sm:block">
-      <a href="index.html" class="hover:underline">Home</a>
-      <a href="experience.html" class="underline font-semibold">Experience</a>
-      <a href="projects.html" class="hover:underline">Projects</a>
-      <a href="blog.html" class="hover:underline">Blog</a>
-      <a href="resume.html" class="hover:underline">Resume</a>
-      <a href="contact.html" class="hover:underline">Contact</a>
-    </nav>
-    <button onclick="toggleTheme()" class="ml-4 px-3 py-1 border rounded text-sm dark:border-gray-400">
-      <span id="theme-toggle-text">Loading...</span>
-    </button>
-  </header>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300 font-sans">
 
-  <!-- Experience Section -->
-  <main class="px-6 py-12 max-w-5xl mx-auto">
-    <h2 class="text-3xl font-bold mb-8 text-center">Experience & Skills</h2>
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-gray-900 dark:text-white">Vivek Gupta</a>
+                </div>
 
-    <div class="space-y-10">
-      <!-- Job Experience -->
-      <div>
-        <h3 class="text-xl font-semibold">Senior Software Engineer — KPIT (Nov 2021 – Present)</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Stellantis STLA Brain Project</p>
-        <ul class="list-disc pl-5 space-y-2 text-base text-gray-700 dark:text-gray-300">
-          <li>Worked extensively on Classic AUTOSAR diagnostic stack: <strong>DCM, DEM</strong>.</li>
-          <li>Handled memory stack modules: <strong>NVM, FEE</strong> and integrated MCAL configs.</li>
-          <li>Created custom diagnostic CDDs for vendor-specific services and parameter memory.</li>
-          <li>Interpreted and configured complex <strong>ECU extract/ARXML files</strong>.</li>
-          <li>Wrote CAPL scripts to validate diagnostic services via <strong>Vector CANoe</strong>.</li>
-          <li>Used tools: DaVinci Developer & Configurator, Rhapsody, Git, Jira, Trace32.</li>
-          <li>Mentored juniors and contributed to internal tool development and automation scripts.</li>
-        </ul>
-      </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden sm:flex sm:items-center sm:space-x-8">
+                    <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Home</a>
+                    <a href="experience.html" class="text-sm font-medium text-indigo-600 dark:text-indigo-400" aria-current="page">Experience</a>
+                    <a href="projects.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Projects</a>
+                    <a href="blog.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Blog</a>
+                    <a href="resume.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Resume</a>
+                    <a href="contact.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Contact</a>
+                </nav>
 
-      <!-- Skills Section -->
-      <div>
-        <h3 class="text-xl font-semibold mt-10 mb-4">Core Skills</h3>
-        <div class="grid sm:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
-          <ul class="list-disc pl-5">
-            <li>Classic AUTOSAR</li>
-            <li>DCM, DEM, NVM, FEE</li>
-            <li>MCAL Driver Integration</li>
-            <li>ARXML & ECU Extract Interpretation</li>
-            <li>CAN, CAN FD, FlexRay, Ethernet</li>
-          </ul>
-          <ul class="list-disc pl-5">
-            <li>CAPL Scripting & CANoe</li>
-            <li>Debugging: Trace32, Git, Jira</li>
-            <li>Python, C, Streamlit Apps</li>
-            <li>Resume Builders, Dev Tools</li>
-            <li>Mentoring & Internal Training</li>
-          </ul>
+                <!-- Theme Toggle & Mobile Menu Button -->
+                <div class="flex items-center">
+                    <button id="theme-toggle-btn" type="button" class="mr-4 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                        <svg id="moon-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                    </button>
+                    <div class="sm:hidden">
+                        <button id="mobile-menu-button" type="button" class="p-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
 
-  <footer class="text-center text-sm py-6 border-t dark:border-gray-700">
-    &copy; 2025 Vivek Gupta. All rights reserved.
-  </footer>
+        <!-- Mobile Menu, show/hide based on menu state. -->
+        <div class="hidden sm:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
+                <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600" aria-current="page">Experience</a>
+                <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Projects</a>
+                <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Blog</a>
+                <a href="resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Resume</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+            </div>
+        </div>
+    </header>
 
+    <!-- Experience Section -->
+    <main id="main-content" class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-gray-900 dark:text-white">Professional Experience</h2>
+            <div class="space-y-12 border-l-2 border-indigo-200 dark:border-gray-700">
+                <div class="relative">
+                    <div class="absolute w-4 h-4 bg-indigo-600 rounded-full -left-2 top-1 ring-8 ring-white dark:ring-gray-900"></div>
+                    <div class="ml-8">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Senior Software Engineer at KPIT</h3>
+                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-1">Oct 2024 – Present | Bengaluru, India</p>
+                        <ul class="list-disc list-outside mt-4 ml-5 space-y-2 text-gray-600 dark:text-gray-300">
+                            <li>Working on Stellantis STLA Brain project as Diagnostic Stack Specialist (DCM, DEM, NvM, FEE).</li>
+                            <li>Developed and integrated MCAL/Cdd diagnostics components for custom bootloaders.</li>
+                            <li>Implemented CDD modules for Candela Diagnostic Description (CDD XML) parsing & integration.</li>
+                            <li>Mentored junior engineers and automated CAPL test suites for CANoe trace validation.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute w-4 h-4 bg-indigo-600 rounded-full -left-2 top-1 ring-8 ring-white dark:ring-gray-900"></div>
+                    <div class="ml-8">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Software Engineer at KPIT</h3>
+                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-1">Nov 2021 – Sep 2024 | Bengaluru, India</p>
+                        <ul class="list-disc list-outside mt-4 ml-5 space-y-2 text-gray-600 dark:text-gray-300">
+                            <li>Contributed to ECU extract file parsing, ARXML configuration, and BSW integration for Classic AUTOSAR ECUs.</li>
+                            <li>Tools used: Vector CANoe, DaVinci Developer/Configurator, Rhapsody, Git, Trace32.</li>
+                            <li>Received multiple awards for breakthrough contributions, innovation and knowledge sharing.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer" class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 Vivek Gupta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script src="script.js"></script>
+    <script src="nav.js"></script>
 </body>
 </html>

@@ -8,14 +8,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     function toggleTheme() {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-toggle-text').innerText = isDark ? 'Light Theme' : 'Dark Theme';
     }
     window.onload = () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-      }
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+      document.getElementById('theme-toggle-text').innerText = savedTheme === 'dark' ? 'Light Theme' : 'Dark Theme';
     }
   </script>
 </head>
@@ -33,7 +33,7 @@
       <a href="contact.html" class="hover:underline">Contact</a>
     </nav>
     <button onclick="toggleTheme()" class="ml-4 px-3 py-1 border rounded text-sm dark:border-gray-400">
-      Toggle Mode
+      <span id="theme-toggle-text">Loading...</span>
     </button>
   </header>
 
@@ -42,23 +42,24 @@
     <h2 class="text-3xl font-bold mb-8 text-center">Blog</h2>
     <div class="space-y-10">
 
-      <!-- Blog Post -->
+      <!-- Blog Post 1 -->
       <article class="border-l-4 border-blue-600 pl-6">
         <h3 class="text-2xl font-semibold">How I Built My PDF Question Extractor</h3>
         <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">June 2025</p>
         <p class="text-base leading-relaxed">
           QnAfy started as a weekend project to streamline study material processing. It uses PyMuPDF, OpenRouter APIs, and OCR to generate question-answer pairs from scanned PDFs. Here’s the journey from an idea to a working prototype.
         </p>
-        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">Read more</a>
+        <a href="https://github.com/VivekGuptaOfficial/qnafy" class="text-blue-600 dark:text-blue-400 hover:underline text-sm" target="_blank">View on GitHub</a>
       </article>
 
+      <!-- Blog Post 2 -->
       <article class="border-l-4 border-blue-600 pl-6">
         <h3 class="text-2xl font-semibold">Resume Optimization Tips from a Developer’s Perspective</h3>
         <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">May 2025</p>
         <p class="text-base leading-relaxed">
           From choosing keywords to structuring your impact statements — here’s what I learned while building an AI-powered resume builder tailored for ATS systems.
         </p>
-        <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline text-sm">Read more</a>
+        <a href="https://github.com/VivekGuptaOfficial/resume-builder" class="text-blue-600 dark:text-blue-400 hover:underline text-sm" target="_blank">View on GitHub</a>
       </article>
 
     </div>

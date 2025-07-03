@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vivek Gupta | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Vivek Gupta</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Dark mode toggle script
     function toggleTheme() {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('theme-toggle-text').innerText = isDark ? 'Light Theme' : 'Dark Theme';
     }
     window.onload = () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-      }
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+      document.getElementById('theme-toggle-text').innerText = savedTheme === 'dark' ? 'Light Theme' : 'Dark Theme';
     }
   </script>
 </head>
-
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans">
   <!-- Navbar -->
   <header class="flex justify-between items-center px-6 py-4 shadow-md dark:shadow-gray-800 sticky top-0 bg-white dark:bg-gray-900 z-50">
     <h1 class="text-xl font-bold">Vivek Gupta</h1>
     <nav class="space-x-4 hidden sm:block">
-      <a href="index.html" class="hover:underline">Home</a>
+      <a href="index.html" class="underline font-semibold">Home</a>
       <a href="experience.html" class="hover:underline">Experience</a>
       <a href="projects.html" class="hover:underline">Projects</a>
       <a href="blog.html" class="hover:underline">Blog</a>
@@ -34,31 +31,33 @@
       <a href="contact.html" class="hover:underline">Contact</a>
     </nav>
     <button onclick="toggleTheme()" class="ml-4 px-3 py-1 border rounded text-sm dark:border-gray-400">
-      Toggle Mode
+      <span id="theme-toggle-text">Loading...</span>
     </button>
   </header>
 
-  <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center h-[90vh] text-center px-4">
-    <h2 class="text-4xl md:text-6xl font-bold mb-4">Hey, I'm Vivek Gupta</h2>
-    <p class="text-lg md:text-xl max-w-2xl mb-6">Autosar Diagnostic Stack Developer | Embedded Systems Enthusiast | Software Craftsman</p>
-    <a href="projects.html" class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Explore My Work</a>
-  </section>
-
-  <!-- About Section -->
-  <section class="px-6 py-12 bg-gray-50 dark:bg-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-3xl font-semibold mb-6 text-center">About Me</h3>
-      <p class="text-lg leading-relaxed">
-        I’m a senior software engineer specializing in Classic AUTOSAR modules like DCM, DEM, NVM, and FEE. With over 3 years of experience at KPIT, I’ve worked extensively on the Stellantis STLA Brain project, integrating CDDs, debugging diagnostic tools, and creating robust embedded solutions. Passionate about code clarity, automation, and mentoring, I also explore projects in Python, DevOps, and AI-enhanced productivity tools.
-      </p>
+  <!-- Hero -->
+  <section class="text-center px-6 py-20">
+    <h2 class="text-4xl font-extrabold mb-4">Hi, I'm Vivek 👋</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+      An AUTOSAR Diagnostics & Memory Stack Engineer. I build embedded software for ECUs, developer tools, and smarter AI utilities.
+    </p>
+    <div class="mt-6 space-x-4">
+      <a href="resume.html" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">View Resume</a>
+      <a href="projects.html" class="px-4 py-2 border border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 rounded hover:bg-blue-50 dark:hover:bg-gray-800">My Projects</a>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- About -->
+  <section class="px-6 py-12 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-bold mb-4">About Me</h3>
+    <p class="text-base leading-relaxed text-gray-700 dark:text-gray-300">
+      I'm a Senior Software Engineer at KPIT working on Stellantis’ STLA Brain. My domain spans DCM, DEM, NVRAM, FEE, MCAL interfacing, diagnostic test scripting (CAPL), ARXML parsing, and CANoe trace analysis.
+      I build developer tools in Python, contribute to AI projects like QnAfy, and create resources for tech interview prep. I also maintain a Git tutorial series on YouTube.
+    </p>
+  </section>
+
   <footer class="text-center text-sm py-6 border-t dark:border-gray-700">
     &copy; 2025 Vivek Gupta. All rights reserved.
   </footer>
 </body>
-
 </html>

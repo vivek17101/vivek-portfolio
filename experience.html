@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Experience | Vivek Gupta</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +25,9 @@
             },
         };
     </script>
+    
+    <!-- ScrollReveal.js for animations -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 
     <!-- Theme detection script (prevents FOUC) -->
     <script>
@@ -41,12 +45,7 @@
     <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="index.html" class="text-2xl font-bold text-gray-900 dark:text-white">Vivek Gupta</a>
-                </div>
-
-                <!-- Desktop Navigation -->
+                <div class="flex-shrink-0"><a href="index.html" class="text-2xl font-bold text-gray-900 dark:text-white">Vivek Gupta</a></div>
                 <nav class="hidden sm:flex sm:items-center sm:space-x-8">
                     <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Home</a>
                     <a href="experience.html" class="text-sm font-medium text-indigo-600 dark:text-indigo-400" aria-current="page">Experience</a>
@@ -55,24 +54,12 @@
                     <a href="resume.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Resume</a>
                     <a href="contact.html" class="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Contact</a>
                 </nav>
-
-                <!-- Theme Toggle & Mobile Menu Button -->
                 <div class="flex items-center">
-                    <button id="theme-toggle-btn" type="button" class="mr-4 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
-                        <svg id="moon-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
-                    </button>
-                    <div class="sm:hidden">
-                        <button id="mobile-menu-button" type="button" class="p-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-                        </button>
-                    </div>
+                    <button id="theme-toggle-btn" type="button" class="mr-4 p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"><svg id="sun-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg><svg id="moon-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg></button>
+                    <div class="sm:hidden"><button id="mobile-menu-button" type="button" class="p-2 rounded-md text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-controls="mobile-menu" aria-expanded="false"><span class="sr-only">Open main menu</span><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg></button></div>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Menu, show/hide based on menu state. -->
         <div class="hidden sm:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
@@ -85,34 +72,50 @@
         </div>
     </header>
 
-    <!-- Experience Section -->
+    <!-- Main Content -->
     <main id="main-content" class="px-4 py-16 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-gray-900 dark:text-white">Professional Experience</h2>
-            <div class="space-y-12 border-l-2 border-indigo-200 dark:border-gray-700">
-                <div class="relative">
-                    <div class="absolute w-4 h-4 bg-indigo-600 rounded-full -left-2 top-1 ring-8 ring-white dark:ring-gray-900"></div>
-                    <div class="ml-8">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Senior Software Engineer at KPIT</h3>
-                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-1">Oct 2024 – Present | Bengaluru, India</p>
-                        <ul class="list-disc list-outside mt-4 ml-5 space-y-2 text-gray-600 dark:text-gray-300">
-                            <li>Working on Stellantis STLA Brain project as Diagnostic Stack Specialist (DCM, DEM, NvM, FEE).</li>
-                            <li>Developed and integrated MCAL/Cdd diagnostics components for custom bootloaders.</li>
-                            <li>Implemented CDD modules for Candela Diagnostic Description (CDD XML) parsing & integration.</li>
-                            <li>Mentored junior engineers and automated CAPL test suites for CANoe trace validation.</li>
-                        </ul>
+            <!-- Experience Section -->
+            <div class="reveal">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-gray-900 dark:text-white">Professional Experience</h2>
+                <div class="space-y-12 border-l-2 border-indigo-200 dark:border-gray-700">
+                    <div class="relative">
+                        <div class="absolute w-4 h-4 bg-indigo-600 rounded-full -left-2 top-1 ring-8 ring-white dark:ring-gray-900"></div>
+                        <div class="ml-8">
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Senior Embedded Software Engineer at KPIT</h3>
+                            <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-1">Nov 2021 – Present | Bengaluru, India</p>
+                            <ul class="list-disc list-outside mt-4 ml-5 space-y-2 text-gray-600 dark:text-gray-300">
+                                <li>Led DCM and DEM development for multiple ECUs in the Stellantis STLA Brain platform.</li>
+                                <li>Implemented NVM and FEE modules per application-platform requirements.</li>
+                                <li>Designed robust DTC and fault logging with DEM integration.</li>
+                                <li>Developed 100+ CAPL scripts to test UDS services, DIDs, RIDs, and OBD via CANoe.</li>
+                                <li>Integrated CDD files and customized service responses as per diagnostic requirements.</li>
+                                <li>Mapped OEM diagnostic specs to ARXML for traceability and compliance.</li>
+                                <li>Trained 3+ engineers; improved test cycle by 20% with optimized strategy.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="relative">
-                    <div class="absolute w-4 h-4 bg-indigo-600 rounded-full -left-2 top-1 ring-8 ring-white dark:ring-gray-900"></div>
-                    <div class="ml-8">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Software Engineer at KPIT</h3>
-                        <p class="text-sm font-medium text-indigo-600 dark:text-indigo-400 mt-1">Nov 2021 – Sep 2024 | Bengaluru, India</p>
-                        <ul class="list-disc list-outside mt-4 ml-5 space-y-2 text-gray-600 dark:text-gray-300">
-                            <li>Contributed to ECU extract file parsing, ARXML configuration, and BSW integration for Classic AUTOSAR ECUs.</li>
-                            <li>Tools used: Vector CANoe, DaVinci Developer/Configurator, Rhapsody, Git, Trace32.</li>
-                            <li>Received multiple awards for breakthrough contributions, innovation and knowledge sharing.</li>
-                        </ul>
+            </div>
+
+            <!-- Certifications & Awards Section -->
+            <div class="mt-20 reveal">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 text-gray-900 dark:text-white">Certifications & Awards</h2>
+                <div class="grid gap-8 md:grid-cols-2">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Vector Certified Embedded Associate (CEA)</h3>
+                        <p class="text-gray-500 dark:text-gray-400 mt-1">Awarded by Vector Informatik (2022)</p>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">Recognized for proficiency in AUTOSAR standards and diagnostic protocols.</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Breakthrough Achievement Award</h3>
+                        <p class="text-gray-500 dark:text-gray-400 mt-1">Awarded by KPIT (Feb 2023)</p>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">Recognized for impactful diagnostic module delivery ahead of schedule.</p>
+                    </div>
+                     <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md md:col-span-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Learning Champion & Contributor</h3>
+                        <p class="text-gray-500 dark:text-gray-400 mt-1">Awarded by KPIT (2023-2024)</p>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300">Consistently acknowledged for mentorship, knowledge sharing, and quality delivery.</p>
                     </div>
                 </div>
             </div>
@@ -120,13 +123,29 @@
     </main>
 
     <footer id="footer" class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 Vivek Gupta. All rights reserved.</p>
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/vivek17101" target="_blank" class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"><span class="sr-only">GitHub</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg></a>
+                <a href="https://www.linkedin.com/in/vivek-gupta-3bba0014a/" target="_blank" class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"><span class="sr-only">LinkedIn</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg></a>
+            </div>
+            <p class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">&copy; 2025 Vivek Gupta. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Shared Scripts -->
     <script src="script.js"></script>
     <script src="nav.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            ScrollReveal().reveal('.reveal', {
+                delay: 100,
+                distance: '30px',
+                origin: 'bottom',
+                opacity: 0,
+                easing: 'ease-in-out',
+                interval: 150
+            });
+        });
+    </script>
 </body>
 </html>
